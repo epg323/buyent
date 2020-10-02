@@ -33,8 +33,8 @@ class App extends React.Component {
   priceCheck(e){
     e.preventDefault()
     const compared = this.state.itemPrice < this.state.costs
-    const hide = this.state.itemName == 'Hand Sanitizer'
-    if(compared == true){
+    const hide = this.state.itemName === 'Hand Sanitizer'
+    if(compared === true){
       const level = 'Bargain 😇'
       this.setState({ fairness: level, show: hide})
     }else{
@@ -61,20 +61,11 @@ class App extends React.Component {
         </Card>)
     
     return (
-      <div style={{display:'flex', padding:'10px', flexDirection:'Column', justifyContent:'Center'}}>
+      <div style={{display:'flex', padding:'10px', flexDirection:'Column', justifyContent:'Center', backgroundColor:'#ff6200'}}>
         <h3 style={{color:"#212529", marginBottom:'1rem'}}>🧴Commodity Democracy⚖️</h3>
-        <div style={{display:"flex" , justifyContent:'space-between', marginBottom:'1rem'}}>
-          <label>Commodity Name: </label>
-          <input onChange= {this.enterItem} value={this.state.itemName}></input>
-        </div>
-        <div style={{display:"flex" , justifyContent:'space-between', marginBottom:'1rem'}}>
-          <label>Price per ounce: </label>
-          <input onChange= {this.enterPrice} value={this.state.itemPrice}></input>
-        </div>
-        <button onClick = {this.priceCheck}>🏷️ Get that price!</button>
         <InputGroup className="mb-3">
           <InputGroup.Prepend>
-            <InputGroup.Text id="basic-addon1">Commodity Name</InputGroup.Text>
+            <InputGroup.Text id="basic-addon1">🥛 Commodity Name</InputGroup.Text>
           </InputGroup.Prepend>
           <FormControl
             placeholder="Name"
@@ -86,7 +77,7 @@ class App extends React.Component {
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Prepend>
-            <InputGroup.Text id="basic-addon1">Price per ounce%20</InputGroup.Text>
+            <InputGroup.Text id="basic-addon1">💸 Price per ounce &nbsp;&nbsp;&nbsp;</InputGroup.Text>
           </InputGroup.Prepend>
           <FormControl
             placeholder="enter amount"
@@ -96,6 +87,7 @@ class App extends React.Component {
             value = {this.state.itemPrice}
           />
         </InputGroup>
+        <Button variant="primary" onClick = {this.priceCheck}>🏷️ Get that price!</Button>
         {sampleCard}
       </div>
     );
